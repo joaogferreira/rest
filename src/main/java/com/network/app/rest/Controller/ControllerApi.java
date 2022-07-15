@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 public class ControllerApi {
@@ -106,14 +107,22 @@ public class ControllerApi {
      */
     @DeleteMapping( value = "/delete/{id}")
     public String removeDevice( @PathVariable long id ){
-        Device deviceToBeDeleted = deviceRepository.findById(id).get(); /* find device in the database */
-        deviceRepository.delete( deviceToBeDeleted ); /* remove device from the database */
 
-        /* TO DO - STOP THE THREAD */
-        Polling pollingThread = this.pollingThreads.get( id );
-        pollingThread.stopThread();
+        try {
+            Device deviceToBeDeleted = deviceRepository.findById(id).get(); /* find device in the database */
 
-        return "Deleted device " + deviceToBeDeleted.toString() + " Current Database size: " + deviceRepository.count();
+            deviceRepository.delete( deviceToBeDeleted ); /* remove device from the database */
+
+            /* TO DO - STOP THE THREAD */
+            Polling pollingThread = this.pollingThreads.get( id );
+            pollingThread.stopThread();
+
+            this.pollingThreads.remove( id );
+
+            return "Deleted device " + deviceToBeDeleted.toString() + " Current Database size: " + deviceRepository.count();
+        } catch( NoSuchElementException e){
+            return "No device found!";
+        }
     }
 
     /**
