@@ -29,7 +29,8 @@ public class ControllerApi {
     public String addDevice( @RequestBody Device device){
         deviceRepository.save( device );
 
-        Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress() );
+        Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress(),
+                deviceRepository );
         pollingThread.start();
 
         return "Added device " + device.toString() + " to the database!"+
@@ -41,6 +42,10 @@ public class ControllerApi {
         for (Device device : devices)
         {
             deviceRepository.save( device );
+
+            Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress(),
+                    deviceRepository );
+            pollingThread.start();
         }
         return "Added " + devices.length + " devices to the database! " +
                 "Current Database size: " + deviceRepository.count();
