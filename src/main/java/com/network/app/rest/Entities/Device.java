@@ -5,9 +5,17 @@ import javax.persistence.*;
 @Entity
 public class Device {
 
+    /**
+     * Main entity - Device
+     * A device is composed of
+     * An ID
+     * An IP Address
+     * A Last Success Communication Timestamp
+     */
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // unique for each entity
-    private long id; // primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) /* unique for each entity */
+    private long id; /* primary key */
 
     @Column
     private String ipAddress;
