@@ -7,10 +7,7 @@ import org.apache.tomcat.jni.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @RestController
 public class ControllerApi {
@@ -39,7 +36,7 @@ public class ControllerApi {
     @GetMapping( value = "/listAddress")
     public String getAllAddresses(){
         List<Device> devices = deviceRepository.findAll(); /* Get all devices */
-        ArrayList<String> addressList = new ArrayList<>();
+        Set<String> addressList = new HashSet<>(); /* no duplicates */
 
         for( Device device: devices ){
             addressList.add( device.getIpAddress() ); /* Get device IP and save it */
