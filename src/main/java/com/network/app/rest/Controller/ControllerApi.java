@@ -1,11 +1,10 @@
 package com.network.app.rest.Controller;
 
-import com.network.app.rest.Models.Device;
+import com.network.app.rest.Entities.Device;
 import com.network.app.rest.Repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @RestController

@@ -1,4 +1,4 @@
-package com.network.app.rest.Models;
+package com.network.app.rest.Entities;
 
 import javax.persistence.*;
 
