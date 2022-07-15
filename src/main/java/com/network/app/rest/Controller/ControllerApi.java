@@ -16,11 +16,6 @@ public class ControllerApi {
     @Autowired
     private DeviceRepository deviceRepository;
 
-    @GetMapping( value = "/")
-    public String welcome(){
-        return "hello world";
-    }
-
     @GetMapping( value = "/devices")
     public List<Device> getDevices(){
         return deviceRepository.findAll();
