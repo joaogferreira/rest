@@ -29,8 +29,8 @@ public class ControllerApi {
     public String addDevice( @RequestBody Device device){
         deviceRepository.save( device );
 
-        Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress(),
-                deviceRepository );
+        Polling pollingThread = new Polling( device, device.getPollingIntervalInSec(), device.getIpAddress(),
+                deviceRepository, this );
         pollingThread.start();
 
         return "Added device " + device.toString() + " to the database!"+
@@ -43,8 +43,8 @@ public class ControllerApi {
         {
             deviceRepository.save( device );
 
-            Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress(),
-                    deviceRepository );
+            Polling pollingThread = new Polling( device, device.getPollingIntervalInSec(), device.getIpAddress(),
+                    deviceRepository, this);
             pollingThread.start();
         }
         return "Added " + devices.length + " devices to the database! " +
@@ -56,5 +56,16 @@ public class ControllerApi {
         Device deviceToBeDeleted = deviceRepository.findById(id).get();
         deviceRepository.delete( deviceToBeDeleted );
         return "Deleted device " + deviceToBeDeleted.toString() + " Current Database size: " + deviceRepository.count();
+    }
+
+    public String updateDevice(long id, long newLastSuccessCommTimestamp){
+        Device deviceToBeUpdated = deviceRepository.findById(id).get();
+        deviceToBeUpdated.setId( deviceToBeUpdated.getId() );
+        deviceToBeUpdated.setIpAddress( deviceToBeUpdated.getIpAddress() );
+        deviceToBeUpdated.setPollingIntervalInSec( deviceToBeUpdated.getPollingIntervalInSec() );
+        deviceToBeUpdated.setLastSuccessCommTimestamp( newLastSuccessCommTimestamp );
+        deviceRepository.save( deviceToBeUpdated );
+
+        return "Device " + id + " updated!";
     }
 }
