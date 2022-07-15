@@ -7,6 +7,7 @@ import org.apache.tomcat.jni.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,19 @@ public class ControllerApi {
         return deviceRepository.findAll();
     }
 
+    @GetMapping( value = "/listAddress")
+    public String getAllAddresses(){
+        List<Device> devices = deviceRepository.findAll();
+        ArrayList<String> addressList = new ArrayList<>();
+
+        for( Device device: devices ){
+            addressList.add( device.getIpAddress() );
+        }
+
+        return addressList.toString();
+
+
+    }
     @PostMapping( value = "/add")
     public String addDevice( @RequestBody Device device){
         deviceRepository.save( device );
