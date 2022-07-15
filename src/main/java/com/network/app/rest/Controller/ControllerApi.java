@@ -29,6 +29,11 @@ public class ControllerApi {
         return "Added device " + device.toString() + " to the database!";
     }
 
+    @PostMapping( value = "/addList")
+    public String addDevices( @RequestBody Device[] devices){
+        return "We should add " + devices.length + " to the database!";
+    }
+
     @DeleteMapping( value = "/delete/{id}")
     public String removeDevice( @PathVariable long id ){
         Device deviceToBeDeleted = deviceRepository.findById(id).get();
