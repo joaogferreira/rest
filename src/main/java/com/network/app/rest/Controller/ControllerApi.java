@@ -1,7 +1,9 @@
 package com.network.app.rest.Controller;
 
 import com.network.app.rest.Entities.Device;
+import com.network.app.rest.Monitor.Polling;
 import com.network.app.rest.Repository.DeviceRepository;
+import org.apache.tomcat.jni.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,18 +28,28 @@ public class ControllerApi {
     @PostMapping( value = "/add")
     public String addDevice( @RequestBody Device device){
         deviceRepository.save( device );
-        return "Added device " + device.toString() + " to the database!";
+
+        Polling pollingThread = new Polling( device.getPollingIntervalInSec(), device.getIpAddress() );
+        pollingThread.start();
+
+        return "Added device " + device.toString() + " to the database!"+
+                "Current Database size: " + deviceRepository.count();
     }
 
     @PostMapping( value = "/addList")
     public String addDevices( @RequestBody Device[] devices){
-        return "We should add " + devices.length + " to the database!";
+        for (Device device : devices)
+        {
+            deviceRepository.save( device );
+        }
+        return "Added " + devices.length + " devices to the database! " +
+                "Current Database size: " + deviceRepository.count();
     }
 
     @DeleteMapping( value = "/delete/{id}")
     public String removeDevice( @PathVariable long id ){
         Device deviceToBeDeleted = deviceRepository.findById(id).get();
         deviceRepository.delete( deviceToBeDeleted );
-        return "Deleted device " + deviceToBeDeleted.toString();
+        return "Deleted device " + deviceToBeDeleted.toString() + " Current Database size: " + deviceRepository.count();
     }
 }
