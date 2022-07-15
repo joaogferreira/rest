@@ -56,6 +56,7 @@ public class Device {
                 "id=" + id +
                 ", ipAddress='" + ipAddress + '\'' +
                 ", pollingIntervalInSec=" + pollingIntervalInSec +
+                ", lastSuccessCommTimestamp=" + lastSuccessCommTimestamp +
                 '}';
     }
 }
