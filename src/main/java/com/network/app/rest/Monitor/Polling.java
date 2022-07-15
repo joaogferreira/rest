@@ -17,6 +17,8 @@ public class Polling extends Thread{
     private String address;
     private ControllerApi controllerApi;
 
+    private boolean isStopped = false;
+
     @Autowired
     private DeviceRepository deviceRepository;
 
@@ -31,7 +33,7 @@ public class Polling extends Thread{
     @Override
     public void run(){
 
-        while( true ){
+        while( !isStopped ){
 
             /*
             System.out.println("Ping " + this.address + " , Time: " + System.currentTimeMillis() / 1000
@@ -64,5 +66,11 @@ public class Polling extends Thread{
 
         }
 
+        System.out.println(" Thread: " + this.address + " was stopped.");
+
+    }
+
+    public void stopThread(){
+        this.isStopped = true;
     }
 }
