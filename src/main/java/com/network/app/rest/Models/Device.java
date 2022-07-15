@@ -15,6 +15,8 @@ public class Device {
     @Column
     private long pollingIntervalInSec;
 
+    @Column
+    private long lastSuccessCommTimestamp;
 
     public long getId() {
         return id;
@@ -40,6 +42,13 @@ public class Device {
         this.pollingIntervalInSec = pollingIntervalInSec;
     }
 
+    public long getLastSuccessCommTimestamp() {
+        return lastSuccessCommTimestamp;
+    }
+
+    public void setLastSuccessCommTimestamp(long lastSuccessCommTimestamp) {
+        this.lastSuccessCommTimestamp = lastSuccessCommTimestamp;
+    }
 
     @Override
     public String toString() {
