@@ -21,7 +21,7 @@ public class ControllerApi {
      * List all devices in the network
      * @return a list with all the devices in the network
      */
-    @GetMapping( value = "/devices")
+    @GetMapping( value = "devices/all")
     public List<Device> getDevices(){
         return deviceRepository.findAll();
     }
@@ -33,7 +33,7 @@ public class ControllerApi {
      * It then iterates over those devices and extracts the IPs, saving them in a list.
      * @return all devices IP addresses
      */
-    @GetMapping( value = "/listAddress")
+    @GetMapping( value = "devices/listAddress")
     public String getAllAddresses(){
         List<Device> devices = deviceRepository.findAll(); /* Get all devices */
         Set<String> addressList = new HashSet<>(); /* no duplicates */
@@ -54,7 +54,7 @@ public class ControllerApi {
      * @param device a device to be added
      * @return a String showing that the device was added successfully
      */
-    @PostMapping( value = "/add")
+    @PostMapping( value = "devices/add")
     public String addDevice( @RequestBody Device device){
         deviceRepository.save( device ); /* save device in database */
 
@@ -77,7 +77,7 @@ public class ControllerApi {
      * @param devices a list of devices to be added
      * @return a String showing that the devices were added successfully
      */
-    @PostMapping( value = "/addList")
+    @PostMapping( value = "devices/addList")
     public String addDevices( @RequestBody Device[] devices){
         for (Device device : devices)
         {
@@ -102,7 +102,7 @@ public class ControllerApi {
      * @param id id of the device to be deleted
      * @return a String showing that the device was deleted successfully
      */
-    @DeleteMapping( value = "/delete/{id}")
+    @DeleteMapping( value = "devices/delete/{id}")
     public String removeDevice( @PathVariable long id ){
 
         try {
