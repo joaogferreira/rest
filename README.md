@@ -81,6 +81,16 @@ The network has a new element.
 
 ### Use case 2 - Add a list of devices 
 
+This use case is a continuation of use case 1.
+
+Add a list of devices to the network:
+
+![image info](./screenshots/addlist1.png)
+
+The network has 3 new elements.
+
+![image info](./screenshots/all2.png)
+
 ### Use case 3 - Get all devices
 
 ### Use case 4 - Get all addresses being tested 
