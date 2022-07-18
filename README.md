@@ -118,5 +118,7 @@ Current devices list (id 1 deleted):
 ## Technologies used:
 
 Java
+
 Maven
+
 Spring boot 
