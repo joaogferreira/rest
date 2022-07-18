@@ -9,3 +9,7 @@
 | POST   | devices/add         | -          |
 | POST   | devices/addList     | -          |
 | DELETE | devices/delete/{id} | id         |
+
+
+## JSON objects used
+
