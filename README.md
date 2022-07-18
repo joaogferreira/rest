@@ -115,4 +115,8 @@ Current devices list (id 1 deleted):
 
 ![image info](./screenshots/all3.png)
 
+## Technologies used:
 
+Java
+Maven
+Spring boot 
