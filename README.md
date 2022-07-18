@@ -93,6 +93,12 @@ The network has 3 new elements.
 
 ### Use case 3 - Get all devices
 
+This use case was tested in the previous examples (endpoint devices/all/ ).
+
 ### Use case 4 - Get all addresses being tested 
+
+This use case is a continuation of use case 2.
+
+![image info](./screenshots/address.png)
 
 ### Use case 5 - Delete a device
