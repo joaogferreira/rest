@@ -55,7 +55,9 @@ public class ControllerApi {
      * @return a String showing that the device was added successfully
      */
     @PostMapping( value = "devices/add")
-    public String addDevice( @RequestBody Device device){
+    public String addDevice( @RequestBody Device[] devices){
+        Device device = devices[0]; /* only 1 device */
+
         deviceRepository.save( device ); /* save device in database */
 
         /* start the thread responsible for the ping command */
