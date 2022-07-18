@@ -67,6 +67,18 @@ There is also a [JAR](https://github.com/joaogferreira/rest/blob/main/JAR/rest-0
 
 ### Use case 1 - Add a device 
 
+Initially, the network is empty.
+
+![image info](./screenshots/all0.png)
+
+Add a new device to the network:
+
+![image info](./screenshots/add1.png)
+
+The network has a new element.
+
+![image info](./screenshots/all1.png)
+
 ### Use case 2 - Add a list of devices 
 
 ### Use case 3 - Get all devices
