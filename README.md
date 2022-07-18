@@ -126,3 +126,6 @@ Spring boot
 H2 Database 
 
 
+## Note
+
+This project requires root privileges as it uses the isReachable method in order to test if an address is reachable.
