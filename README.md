@@ -1,7 +1,7 @@
 # Rest Interface
 
 ## Run (terminal)
-```
+```shell
 cd rest/
 sudo mvn spring-boot:run
 ```
