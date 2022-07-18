@@ -1,18 +1,21 @@
 # Rest Interface
 
-## Run 
+## Run (terminal)
 ```
+cd rest/
 sudo mvn spring-boot:run
 ```
 
 ## Run on a specific port
 
-```shell 
+```shell
+cd rest/
 mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9000
 ```
 
 The port can also be changed in the [application properties file](https://github.com/joaogferreira/rest/blob/main/target/classes/application.properties).
 
+There is also a [JAR](https://github.com/joaogferreira/rest/blob/main/JAR/rest-0.0.1-SNAPSHOT.jar) that lets you run the project.
 ## Endpoints 
 
 | Type   | Endpoint            | Parameters | Description                           | Request Body (JSON) |
