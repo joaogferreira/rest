@@ -102,3 +102,17 @@ This use case is a continuation of use case 2.
 ![image info](./screenshots/address.png)
 
 ### Use case 5 - Delete a device
+
+Current devices list:
+
+![image info](./screenshots/all2.png)
+
+Removing device with ID equal to 1:
+
+![image info](./screenshots/del1.png)
+
+Current devices list (id 1 deleted):
+
+![image info](./screenshots/all3.png)
+
+
