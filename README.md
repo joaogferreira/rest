@@ -1,5 +1,16 @@
 # exercicioREST
 
+## Run 
+```
+sudo mvn spring-boot:run
+```
+
+## Run (specify port)
+
+```shell 
+mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9000
+```
+
 ## Endpoints 
 
 | Type   | Endpoint            | Parameters |
