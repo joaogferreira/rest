@@ -1,4 +1,4 @@
-# exercicioREST
+# Rest Interface
 
 ## Run 
 ```
