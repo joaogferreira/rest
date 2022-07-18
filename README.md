@@ -62,3 +62,15 @@ There is also a [JAR](https://github.com/joaogferreira/rest/blob/main/JAR/rest-0
 
 ]
 ```
+
+## Use cases
+
+### Use case 1 - Add a device 
+
+### Use case 2 - Add a list of devices 
+
+### Use case 3 - Get all devices
+
+### Use case 4 - Get all addresses being tested 
+
+### Use case 5 - Delete a device
