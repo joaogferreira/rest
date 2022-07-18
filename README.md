@@ -11,7 +11,7 @@ sudo mvn spring-boot:run
 mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=9000
 ```
 
-The port can also be changed in the (application properties file)[https://github.com/joaogferreira/rest/blob/main/target/classes/application.properties].
+The port can also be changed in the [application properties file](https://github.com/joaogferreira/rest/blob/main/target/classes/application.properties).
 
 ## Endpoints 
 
